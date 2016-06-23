@@ -38,7 +38,7 @@ def _store_image(original, target, use_move=False):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Sort vacation photos nicely.')
+    parser = argparse.ArgumentParser(description='Sort vacation photos by date taken.')
     parser.add_argument('--files', nargs='+', metavar='F', required=True,
                         help='Files to be sorted.')
     parser.add_argument('--target', type=str, metavar='T', required=True,
