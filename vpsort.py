@@ -14,13 +14,14 @@ def _time_created(image_file):
         tags = exifread.process_file(img)
         date_str = None
         for k, v in tags.items():
-            # print(k, ':  ', v)
             if exif_creation_date.lower() in k.lower():
                 date_str = str(v)
         try:
             return datetime.strptime(date_str, exif_date_fmt)
         except ValueError:
             pass
+        except TypeError:
+            print('Failed reading creation date of {f:}'.format(f=image_file))
     return None
 
 
